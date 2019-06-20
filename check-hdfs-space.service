@@ -1,0 +1,6 @@
+[Unit]
+Description=send hdfs remaining space to zabbix
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash /usr/local/bin/check-hdfs-space.sh
