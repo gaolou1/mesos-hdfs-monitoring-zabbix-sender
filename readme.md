@@ -39,14 +39,14 @@ Edit `check_hdfs_space.sh` and update:
 1. the hostname of the zabbix server (`-z`)
 1. the key (`-k`) value that you specified above when creating the trapper item in zabbix.
 
-This may or may not make a different, but note that the key is passed to `zabbix_sender` "as a variable," so to speak, and not enclosed in quotes as a string:
+This may or may not make a difference, but note that the key is passed to `zabbix_sender` "as a variable," so to speak, and not enclosed in quotes as a string:
 
 ```
 # works:
 /usr/bin/zabbix_sender -z zabbix.server.com -p 10051 -s "node.name.in.zabbix" -k your_key_name_here -o "$gb_remaining"
 
 # may or may not work:
-/usr/bin/zabbix_sender -z zabbix.server.com -p 10051 -s "node.name.in.zabbix" -k "your_key_name_here -o" "$gb_remaining"
+/usr/bin/zabbix_sender -z zabbix.server.com -p 10051 -s "node.name.in.zabbix" -k "your_key_name_here" -o "$gb_remaining"
 ```
 
 ### Step four
